@@ -2,6 +2,7 @@ import { ApiAiConstants } from "./ApiAiConstants";
 import { ApiAiClientConfigurationError } from "./Errors";
 import { EventRequest } from "./Request/EventRequest";
 import TextRequest from "./Request/TextRequest";
+import UserEntitiesRequest from "./Request/UserEntitiesRequest";
 import { TTSRequest } from "./Request/TTSRequest";
 export * from "./Interfaces";
 export { ApiAiConstants } from "./ApiAiConstants";
@@ -37,9 +38,9 @@ export class ApiAiClient {
         }
         return new TTSRequest(this).makeTTSRequest(query);
     }
-    /*public userEntitiesRequest(options: IRequestOptions = {}): UserEntitiesRequest {
+    userEntitiesRequest(options) {
         return new UserEntitiesRequest(this, options);
-    }*/
+    }
     createStreamClient(streamClientOptions = {}) {
         if (this.streamClientClass) {
             streamClientOptions.token = this.getAccessToken();
